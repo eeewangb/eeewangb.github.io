@@ -111,12 +111,12 @@
             height: auto;
             min-width: 0;
         }
-        .research-demos--embodied > img:first-child {
-            grid-column: span 2;
+        /* Use native aspect ratios to give both embodied demos the same height. */
+        .research-demos--embodied {
+            grid-template-columns: minmax(0, var(--left-demo-ratio, 2fr)) minmax(0, var(--right-demo-ratio, 1fr));
         }
         @media (max-width: 600px) {
-            .research-demos { grid-template-columns: minmax(0, 1fr); }
-            .research-demos--embodied > img:first-child { grid-column: auto; }
+            .research-demos, .research-demos--embodied { grid-template-columns: minmax(0, 1fr); }
         }
     </style>
     </head>
@@ -174,8 +174,10 @@
             </li>
             <li>Embodied Artificial Intelligence (e.g., Navigation, Grasping, and Reasoning)
                 <div class="research-demos research-demos--embodied">
-                    <img src="./images/demo-merge2.gif" alt="Embodied Artificial Intelligence research demonstration">
-                    <img src="./images/agentvln-compress.gif" alt="Embodied Artificial Intelligence research demonstration 2">
+                    <img src="./images/demo-merge2.gif" alt="Embodied Artificial Intelligence research demonstration"
+                         onload="if (this.naturalWidth &amp;&amp; this.naturalHeight) this.parentElement.style.setProperty('--left-demo-ratio', (this.naturalWidth / this.naturalHeight) + 'fr');">
+                    <img src="./images/agentvln-compress.gif" alt="Embodied Artificial Intelligence research demonstration 2"
+                         onload="if (this.naturalWidth &amp;&amp; this.naturalHeight) this.parentElement.style.setProperty('--right-demo-ratio', (this.naturalWidth / this.naturalHeight) + 'fr');">
                 </div>
             </li>
         </ul>
