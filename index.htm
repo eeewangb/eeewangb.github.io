@@ -36,37 +36,95 @@
         .pub-list a:hover {
             text-decoration: underline;
         }
+        /* Profile header: photo, biography and university emblem. */
+        .profile-header {
+            display: grid;
+            grid-template-columns: minmax(0, 26%) minmax(0, 1fr) 145px;
+            gap: 18px;
+            align-items: stretch;
+            margin-bottom: 12px;
+        }
+        .profile-photo {
+            position: relative;
+            min-height: 160px;
+        }
+        .profile-photo img {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 60% center;
+        }
+        .profile-info {
+            min-width: 0;
+            overflow-wrap: break-word;
+        }
+        #layout-content .profile-info #toptitle h1 {
+            margin: 0;
+            padding: 0 0 0.15em;
+        }
+        .profile-info #toptitle {
+            margin-bottom: 0.6em;
+            padding-bottom: 0;
+        }
+        .profile-info p:last-child {
+            margin-bottom: 0;
+        }
+        .profile-logo {
+            display: block;
+            width: 145px;
+            max-width: 100%;
+            align-self: start;
+            justify-self: end;
+        }
+        .profile-logo:hover { border-bottom: none; }
+        .profile-logo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        @media (max-width: 800px) {
+            .profile-header {
+                grid-template-columns: minmax(0, 1fr) 110px;
+                gap: 12px;
+            }
+            .profile-photo { min-height: 0; max-width: 280px; }
+            .profile-photo img { position: static; height: auto; }
+            .profile-info { grid-column: 1 / -1; grid-row: 2; }
+            .profile-logo { grid-column: 2; grid-row: 1; width: 110px; }
+        }
     </style>
     </head>
 
 <body ryt12610="1">
     <div id="layout-content" style="margin-top:15px">
-        <table>
-            <tbody>
-                <tr>
-                    <td width="240">
-                        <img src="./photo.jpg" width="180" alt="Profile Photo">
-                    </td>
-                    <td width="670">
-                        <div id="toptitle">
-                            <h1>Bin Wang &nbsp; </h1>
-                        </div>
-                        <h3>Lecturer & Post-doctoral</h3>
-                        <p>
-                            
-                            <a href="https://dz.sdut.edu.cn/" target="_blank">School of Electrical and Electronic Engineering</a> & <a href="https://control.sdu.edu.cn/" target="_blank">School of Control Science and Engineering </a><br>
-                            <a href="https://www.sdut.edu.cn/" target="_blank">Shandong University of Technology</a> & <a href="https://www.sdu.edu.cn/" target="_blank">Shandong University</a><br>
-                            <br>
-                            Email: <a href="mailto:dqwangbin@sdut.edu.cn">dqwangbin@sdut.edu.cn</a>
-                        </p>
-                        <p>
-                            [<a href="https://scholar.google.com/citations?user=Uk43cI4AAAAJ&hl=zh-CN"><span style="color:purple">Google Scholar</span></a>] 
+        <header class="profile-header">
+            <div class="profile-photo">
+                <img src="./photo.jpg" alt="Profile Photo">
+            </div>
+            <div class="profile-info">
+                <div id="toptitle">
+                    <h1>Bin Wang &nbsp; </h1>
+                </div>
+                <h3>Lecturer & Post-doctoral</h3>
+                <p>
                     
-                        </p>
-                   
-                </tr>
-            </tbody>
-        </table>
+                    <a href="https://dz.sdut.edu.cn/" target="_blank">School of Electrical and Electronic Engineering</a> & <a href="https://control.sdu.edu.cn/" target="_blank">School of Control Science and Engineering </a><br>
+                    <a href="https://www.sdut.edu.cn/" target="_blank">Shandong University of Technology</a> & <a href="https://www.sdu.edu.cn/" target="_blank">Shandong University</a><br>
+                    <br>
+                    Email: <a href="mailto:dqwangbin@sdut.edu.cn">dqwangbin@sdut.edu.cn</a>
+                </p>
+                <p>
+                    [<a href="https://scholar.google.com/citations?user=Uk43cI4AAAAJ&hl=zh-CN"><span style="color:purple">Google Scholar</span></a>] 
+            
+                </p>
+            </div>
+            <a class="profile-logo" href="https://www.sdut.edu.cn/" target="_blank" rel="noopener noreferrer" title="Shandong University of Technology">
+                <img src="https://www.sdut.edu.cn/__local/F/9E/66/009E2F02E27783A636432262FA8_43EA0188_1089D.png?e=.png" alt="Shandong University of Technology emblem" referrerpolicy="no-referrer">
+            </a>
+        </header>
 
         <hr>
 
