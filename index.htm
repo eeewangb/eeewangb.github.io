@@ -95,6 +95,29 @@
             .profile-info { grid-column: 1 / -1; grid-row: 2; }
             .profile-logo { grid-column: 2; grid-row: 1; width: 110px; }
         }
+        /* Shared gallery width and column alignment for research demos. */
+        .research-demos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            width: 100%;
+            max-width: 984px;
+            margin-top: 8px;
+            align-items: start;
+        }
+        .research-demos img {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-width: 0;
+        }
+        .research-demos--embodied > img:first-child {
+            grid-column: span 2;
+        }
+        @media (max-width: 600px) {
+            .research-demos { grid-template-columns: minmax(0, 1fr); }
+            .research-demos--embodied > img:first-child { grid-column: auto; }
+        }
     </style>
     </head>
 
@@ -143,25 +166,17 @@
         <ul>
             My recent research interests include:
             <li>Video Understanding (e.g., Temporal Action Recognition, Privacy Action Recognition)
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; max-width: 984px; margin-top: 8px; align-items: start;">
-                    <img src="./images/video-understanding.gif" alt="Video Understanding research demonstration 1" width="320" height="184"
-                         style="display: none; width: 100%; max-width: 320px; height: auto;"
-                         onload="this.style.display='block';">
-                    <img src="./images/video-understanding-2.gif" alt="Video Understanding research demonstration 2" width="320" height="184"
-                         style="display: none; width: 100%; max-width: 320px; height: auto;"
-                         onload="this.style.display='block';">
-                    <img src="./images/video-understanding-3.gif" alt="Video Understanding research demonstration 3" width="320" height="184"
-                         style="display: none; width: 100%; max-width: 320px; height: auto;"
-                         onload="this.style.display='block';">
+                <div class="research-demos">
+                    <img src="./images/video-understanding.gif" alt="Video Understanding research demonstration 1" width="320" height="184">
+                    <img src="./images/video-understanding-2.gif" alt="Video Understanding research demonstration 2" width="320" height="184">
+                    <img src="./images/video-understanding-3.gif" alt="Video Understanding research demonstration 3" width="320" height="184">
                 </div>
             </li>
             <li>Embodied Artificial Intelligence (e.g., Navigation, Grasping, and Reasoning)
-                <img src="./images/demo-merge2.gif" alt="Embodied Artificial Intelligence research demonstration" width="320" height="184"
-                     style="display: none; max-width: 100%; height: auto; margin-top: 8px;"
-                     onload="this.style.display='block';">
-                <img src="./images/agentvln-compress.gif" alt="Embodied Artificial Intelligence research demonstration 2" width="320" height="184"
-                     style="display: none; max-width: 100%; height: auto; margin-top: 8px;"
-                     onload="this.style.display='block';">
+                <div class="research-demos research-demos--embodied">
+                    <img src="./images/demo-merge2.gif" alt="Embodied Artificial Intelligence research demonstration">
+                    <img src="./images/agentvln-compress.gif" alt="Embodied Artificial Intelligence research demonstration 2">
+                </div>
             </li>
         </ul>
         <h2>Research Experience</h2>
